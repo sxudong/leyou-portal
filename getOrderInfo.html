@@ -394,13 +394,13 @@
                         const {discount, ...rest} = this.order;
                         //4.提交订单
                         ly.http.post("/order",rest,{
-                            // transformResponse:[
-                            //     //对响应进行处理的回调
-                            //     function (data) {
-                            //         //不对data做任何处理，直接返回
-                            //         return data;
-                            //     }
-                            // ]
+                             transformResponse:[
+                                 //对响应进行处理的回调
+                                 function (data) {
+                                     //不对data做任何处理，直接返回
+                                     return data;
+                                 }
+                             ]
                         }).then((resp) => {
                             if (resp.status === 200) {
                                 //商品库存不足
